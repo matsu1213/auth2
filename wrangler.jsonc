@@ -1,0 +1,12 @@
+{
+    "name": "worker-name",
+    "compatibility_date": "2025-05-03",
+    "main": "src/app/page.tsx",
+    "d1_databases": [
+        {
+            "binding": "DB",
+            "database_name": "auth2",
+            "database_id": "af5412de-19bf-4a8b-89ef-ec2846d29693"
+        }
+    ]
+}

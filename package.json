@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@auth/d1-adapter": "^1.8.0",
+    "@auth/prisma-adapter": "^2.9.0",
+    "@prisma/client": "^6.7.0",
     "@simplewebauthn/browser": "^9.0.1",
     "@simplewebauthn/server": "^9.0.3",
     "next": "15.3.0",
@@ -22,7 +24,9 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "prisma": "^6.7.0",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "wrangler": "^4.14.1"
   }
 }

@@ -2,8 +2,13 @@
  
 import { SessionProvider, useSession } from "next-auth/react"
 import { signIn } from "next-auth/webauthn"
+import Link from 'next/link'
  
-export default function Login() {
+export default function Login({
+  callbackUrl
+}: {
+  callbackUrl: string | undefined
+}) {
   const { data: session, status } = useSession()
  
   if (status === "loading") {
@@ -12,21 +17,26 @@ export default function Login() {
  
   return (
     <div className="flex flex-col items-center justify-center min-h-screen">
-      {status === "authenticated" ? (
-        <button
-          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-          onClick={() => signIn("passkey", { action: "register" })}
+        <form
+          action={() => {
+            signIn("passkey", { redirectTo: "/dashboard" })
+          }}
         >
-          Register new Passkey
-        </button>
-      ) : status === "unauthenticated" ? (
-        <button
-          className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
-          onClick={() => signIn("passkey")}
-        >
-          Sign in with Passkey
-        </button>
-      ) : null}
+          <button type="submit">
+            パスキーでログインする
+          </button>
+        </form>
+        <div>
+          <a>
+            登録していませんか？
+          </a>
+          <Link
+            className="px-2 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+            href="/register"
+          >
+            新規登録する
+          </Link>
+        </div>
     </div>
   )
 }

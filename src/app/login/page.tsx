@@ -1,10 +1,12 @@
 import { SessionProvider } from "next-auth/react"
 import Login from "./login"
 
-export default function LoginPage() {
+export default function LoginPage(props: {
+  searchParams: { callbackUrl: string | undefined }
+}) {
   return (
     <SessionProvider>
-      <Login />
+      <Login callbackUrl={props.searchParams?.callbackUrl}/>
     </SessionProvider>
   )
 }
