@@ -6,7 +6,7 @@ export default function LoginPage(props: {
 }) {
   return (
     <SessionProvider>
-      <Login callbackUrl={props.searchParams?.callbackUrl}/>
+      <Login searchParams={props.searchParams}/>
     </SessionProvider>
   )
 }
